@@ -14,12 +14,12 @@ def generate_linkedlists_and_arrays(number=1000):
     return linklists, arrays
 
 class TestLinkedList(unittest.TestCase):
-    def test_reverse(self):
+    def test_reverse_method(self):
         linklist, arrays = generate_linkedlists_and_arrays()
         for linklist, nums in zip(linklist, arrays):
             self.assertEqual(linklist.reverse(), nums)
 
-    def test_search(self):
+    def test_search_method(self):
         linklist, arrays = generate_linkedlists_and_arrays()
         n = random.randint(1, 1000)
         for linklist, nums in zip(linklist, arrays):
@@ -30,12 +30,12 @@ class TestLinkedList(unittest.TestCase):
                 result = "failure"
             self.assertEqual(linklist.search(n), result)
 
-    def test_len(self):
+    def test_len_method(self):
         linklist, arrays = generate_linkedlists_and_arrays()
         for linklist, nums in zip(linklist, arrays):
             self.assertEqual(len(linklist), len(nums))
 
-    def test_middle(self):
+    def test_middle_method(self):
         linklist, arrays = generate_linkedlists_and_arrays()
         for linklist, nums in zip(linklist, arrays):
             n = len(nums)
