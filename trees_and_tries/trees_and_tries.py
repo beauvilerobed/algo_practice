@@ -21,7 +21,6 @@ class TrieNode:
     def __init__(self, char):
         self.char = char
         self.in_end = False
-        self.visited = False
         self.children = {}
 
     def __repr__(self):
