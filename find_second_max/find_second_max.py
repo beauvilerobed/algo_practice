@@ -1,6 +1,6 @@
 # python3
 
-# find second max value in array
+# task: find second max value in array
 
 import sys
 

@@ -1,3 +1,7 @@
+# python3
+
+# find the k smallest number in a unsorted array
+
 import sys
 from heapq import heapify, heappop
 
