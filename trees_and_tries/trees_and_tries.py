@@ -32,31 +32,29 @@ class Trie:
     def __init__(self):
         self.root = TrieNode("")
         self.word_number = 0
+        self.bag = []
 
     def insert(self, word):
         self.word_number += 1
 
         node = self.root
-        index = 0
-        
-        # find the index for which the prefix is already in the trie
-        while True:
-            if word[index] in node.children:
-                node = node.children[word[index]]
-                index += 1
+        # will help determeine duplicates
+        count = 0
+        for char in word:
+            # if char is one of the nodes continue down the trie
+            if char in node.children:
+                count += 1
+                node = node.children[char]
+            # else create a new node and attach to trie
             else:
-                break
-        
-        # words in the trie could be a substring of inserted word
-        if index == len(word) and node.in_end == True:
-            node.in_end = False
+                count -= 1
+                new = TrieNode(char)
+                node.children[char] = new
+                node = new
 
-        # add the remaining suffix to the node found
-        for char in word[index:]:
-            new = TrieNode(char)
-            node.children[char] = new
-            node = new
-            
+        if count == len(word):
+            self.word_number -= 1
+
         node.in_end = True
 
     def search(self, word):
@@ -64,40 +62,41 @@ class Trie:
         index = 0
         while True:
             # find the index for which the prefix is already in the trie
-            if index >= len(word):
-                break
+            if index == len(word):
+                return "word found"
             elif word[index] in node.children:
                 node = node.children[word[index]]
                 index += 1
             else:
-                break
-        # word is in trie only when all char in the some trie path
-        if index == len(word):
-            return "word found"
-        else:
-            return "no word found"
+                return "word not found"
 
-    def dfs(self, node, bag, word):
+    def dfs(self, node, prefix):
         if node.in_end:
-            bag.append(word)
-            word = ''
-            
+            self.bag.append(prefix)
+                
         for child in node.children:
-
             child_node = node.children[child]
-            
-            if not child_node.visited:
-                child_node.visited = True
-                word += child_node.char
-            self.dfs(child_node, bag, word)
-            word = word[:-1]
+            prefix = prefix + child_node.char
+            self.dfs(child_node, prefix)
+            prefix = prefix[:-1]
 
-    def all_words(self):
-        bag = []
+    def query(self, prefix):
+        self.bag = []
         node = self.root
-        self.dfs(node, bag, '')
 
-        return bag
+        count = 0
+        for char in prefix:
+            if char in node.children:
+                node = node.children[char]
+                count += 1
+            elif count == 0:
+                return self.bag
+            else:
+                break
+        
+        self.dfs(node, prefix)
+
+        return self.bag
 
 
 def main():
@@ -107,9 +106,14 @@ def main():
         data = data.rstrip()
         trie.insert(data)
     
-    print(trie.all_words())
     print(trie.word_number)
+    print(trie.query(''))
     print(trie.search(input("What word would you like to search: ")))
+    print(trie.query(input("What prefix would you like to search: ")))
+    trie.insert("my")
+    trie.insert("hello")
+    print(trie.query(''))
+    print(trie.word_number)
 
 
 if __name__ == '__main__':
