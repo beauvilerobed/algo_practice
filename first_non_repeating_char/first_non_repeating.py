@@ -15,6 +15,7 @@ def find_non_repeating(string):
     
     return -1
 
+
 def main():
     data = sys.stdin.readline()
     data = data.rstrip()
