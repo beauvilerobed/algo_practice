@@ -3,7 +3,7 @@ import random
 from selection_sort import selection_sort
 
 
-class BubbleSort(unittest.TestCase):
+class SelectionSort(unittest.TestCase):
     def test_small(self):
         test_case = [
             ([2, 1, 1], [1, 1, 2]),

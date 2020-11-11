@@ -3,7 +3,7 @@ import random
 from insertion_sort import insertion_sort
 
 
-class BubbleSort(unittest.TestCase):
+class InsertionSort(unittest.TestCase):
     def test_small(self):
         test_case = [
             ([2, 1, 1], [1, 1, 2]),
