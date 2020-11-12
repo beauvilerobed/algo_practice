@@ -3,15 +3,17 @@ import sys
 
 def parse_int(string):
     n = len(string)
-    array_of_10 = [10 ** (n - i - 1) for i in range(n)]
-    nums = {str(i+1) : i + 1 for i in range(9)}
-
+    if n == 0:
+        return None
+        
+    base_ten = 1
     integer = 0
-
+    
     for i in range(n):
-        key = string[i]
-        num = nums[key] * array_of_10[i]
+        key = ord(string[n - i - 1]) - 48
+        num = key * base_ten
         integer += num
+        base_ten *= 10
 
     return integer
 
