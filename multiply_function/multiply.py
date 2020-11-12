@@ -7,6 +7,18 @@ import sys
 
 
 def multiply(a, b):
+    c = 1
+    d = 1
+
+    if a < 0:
+        c = -1
+    if b < 0:
+        d = -1
+
+    num = multiply_positive(abs(a), abs(b))
+    return c * d * num
+
+def multiply_positive(a, b):
     result = 0
 
     for _ in range(a):
