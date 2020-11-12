@@ -9,22 +9,18 @@ from math import floor, log2
 def to_binary(n):
     if n == 0:
         return 0
-    array = [None] * (n + 1)
 
-    array[0] = '0'
-    array[1] = '1'
+    k = floor(log2(n))   
+    array = ['1'] + ['0'] * k
 
-    for i in range(2, n + 1):
-        k = int(floor(log2(i)))
-        num = 2 ** k
-        remainder = i - num
-        prev_bin = array[remainder]
-        p = len(prev_bin)
-        m = k - p
-        binary = '1' + '0' * m + prev_bin
-        array[i] = binary
+    r = n - 2 ** k
+
+    while r > 0:
+        k = floor(log2(r))
+        array[-(k+1)] = '1'
+        r = r - 2 ** k
     
-    return array[-1]
+    return "".join(array)
 
 
 def main():
