@@ -15,11 +15,11 @@ class SquareRoot(unittest.TestCase):
 
     def test_large(self):
         test_cases = [
-            (10 * 7, sqrt(10 * 7)),
+            (10 ** 7, sqrt(10 ** 7)),
             (2 ** 10, 2 ** 5),
         ]
         for n, answer in test_cases:
-            self.assertEqual(square_root(n), answer)
+            self.assertAlmostEqual(square_root(n), answer)
 
     def test_stress(self):
         test_cases = [random.randint(0, 10 ** 7) for _ in range(10 ** 5)]
