@@ -19,7 +19,7 @@ def binary_on_rotation(nums, target):
             index = i+1
             break
         
-    # the target must be in on of the sides of the rotated array
+    # the target must be in one side of the rotated array
     if nums[index] <= target and target <= nums[-1]:
         new_nums = nums[index:]
         return binary_search(new_nums, target)
