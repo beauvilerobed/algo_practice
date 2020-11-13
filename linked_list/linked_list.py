@@ -48,8 +48,10 @@ class LinkedList:
             remove method deletes elements based on their 
             indexes or position in the linked list
         """
-        if n < 0 or n >= self.length - 1 or self.head is None:
+        if self.head is None or (n < 0 or self.length <= n):
             return "nothing to remove"
+        else:
+            self.length -= 1
         
         count = 0
         node = self.head
@@ -72,12 +74,18 @@ class LinkedList:
 
 
     def search(self, query):
+        if self.head is None:
+            return "failure"
+
         node = self.head
         
         while node.next:
-            node = node.next
             if node.value == query:
                 return "success"
+            node = node.next
+
+        if node.value == query:
+            return "success"
 
         return "failure"
     
@@ -96,7 +104,7 @@ class LinkedList:
 
     def middle(self):
         if self.head is None:
-            return "empyt linked list"
+            return "empty linked list"
 
         fast = self.head
         slow = self.head
