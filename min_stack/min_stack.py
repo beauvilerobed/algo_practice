@@ -16,11 +16,14 @@ class MinStack:
 
     def __repr__(self):
         node = self.head
-        stack = str(node.val)
+        stack = ""
+
+        if node is None:
+            return stack
 
         while node.next:
-            node = node.next
             stack = str(node.val) + " " + stack
+            node = node.next
         
         return stack
 
@@ -46,7 +49,9 @@ class MinStack:
         else:
             top = self.head.val
             if top < self.minimum:
-                self.minimum = 2 * self.minimum - top
+                temp = top
+                top = self.minimum
+                self.minimum = 2 * self.minimum - temp
             
             node = self.head
             self.head = self.head.next
