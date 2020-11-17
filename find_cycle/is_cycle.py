@@ -37,7 +37,7 @@ class LinkedList:
         string = ""
         node = self.head
         n = self.length
-        for _ in range(n + 1):
+        for _ in range(n):
             if node:
                 val = str(node.val)
                 string = val + " " + string
