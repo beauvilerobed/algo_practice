@@ -1,7 +1,7 @@
 # python3
 
 import sys
-from is_cycle import LinkedList, is_cycle
+from linked_list import LinkedList
 
 
 def find_cycle(linklist):
