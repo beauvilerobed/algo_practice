@@ -9,11 +9,24 @@ class Node:
     
 
 class LinkedList:
-    def __init__(self, head=None):
-        self.head = head
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
     
     def add(self, val):
+        self.length += 1
         node = Node(val)
+
+        if self.head is None:
+            self.tail = node
+
+        node.next = self.head
+        self.head = node
+
+    def add_cycle(self):
+        self.length += 1
+        node = self.tail
         node.next = self.head
         self.head = node
 
@@ -23,15 +36,17 @@ class LinkedList:
 
         string = ""
         node = self.head
-        while node:
-            val = str(node.val)
-            string = val + " " + string
-            node = node.next
+        n = self.length
+        for _ in range(n + 1):
+            if node:
+                val = str(node.val)
+                string = val + " " + string
+                node = node.next
 
         return string
 
 
-def find_cycle(linklist):
+def is_cycle(linklist):
     if linklist.head is None:
         return -1
 
@@ -53,8 +68,9 @@ def main():
     linklist = LinkedList()
     for val in vals:
         linklist.add(val)
-    
-    print(find_cycle(linklist))
+        linklist.add_cycle()
+
+    print(is_cycle(linklist))
     print(linklist)
 
 
