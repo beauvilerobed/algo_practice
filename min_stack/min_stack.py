@@ -21,7 +21,7 @@ class MinStack:
         if node is None:
             return stack
 
-        while node.next:
+        while node:
             stack = str(node.val) + " " + stack
             node = node.next
         
