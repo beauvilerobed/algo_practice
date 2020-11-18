@@ -6,20 +6,12 @@ import sys
 
 
 def binary_on_rotation(nums, target):
-    n = len(nums)
-    if n == 0:
-        return None
 
-    index = 0
+    index = find_min_max(nums) 
 
-    # first find the min and max
-    # in sorted rotations, they are next to each other
-    for i in range(n-1):
-        if nums[i] > nums[i+1]:
-            index = i+1
-            break
-        
-    # the target must be in one side of the rotated array
+    if index == None:
+        return index
+
     if nums[index] <= target and target <= nums[-1]:
         new_nums = nums[index:]
         return binary_search(new_nums, target)
@@ -27,9 +19,20 @@ def binary_on_rotation(nums, target):
     elif nums[0] <= target:
         new_nums = nums[:index]
         return binary_search(new_nums, target)
-    
-    else:
+
+
+def find_min_max(nums):
+    n = len(nums)
+    if n == 0:
         return None
+
+    index = 0
+    for i in range(n-1):
+        if nums[i] > nums[i+1]:
+            index = i+1
+            break
+    
+    return index
 
 
 def binary_search(nums, target):
@@ -62,3 +65,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
