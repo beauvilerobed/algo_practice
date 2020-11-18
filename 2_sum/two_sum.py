@@ -22,6 +22,7 @@ def two_sum(nums, target):
 
     return None
 
+
 def main():
     data = sys.stdin.readline()
     nums = list(map(int, data.split()))
@@ -30,3 +31,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    

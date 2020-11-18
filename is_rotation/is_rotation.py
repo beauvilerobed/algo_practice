@@ -9,42 +9,46 @@ import sys
 
 
 def is_rotation(array1, array2):
-    n = len(array1)
-    m = len(array2)
-
+    m = len(array1)
+    n = len(array2)
     if m != n:
+        return -1
+    elif m == 0:
+        return 0
+
+    index2 = find_first_elem_in_second_arr(array1, array2)
+    index1 = loop_thru_both(array1, array2, index2)
+    result = loop_thru_both(array2, array1, index1)
+
+    return -1 if result == -1 else 0
+
+
+def find_first_elem_in_second_arr(arr1, arr2):
+    m = len(arr2)
+    index2 = 0
+
+    while index2 < m:
+        if arr1[0] == arr2[index2]:
+            return index2
+        index2 += 1
+
+    return -1
+
+
+def loop_thru_both(arr1, arr2, index):
+    if index == -1:
         return -1
 
     index1 = 0
-    index2 = 0
+    m = len(arr2)
 
-    # first find where the first element is located in the second array.
-    while index2 < m:
-        if array1[index1] == array2[index2]:
-            break
-        index2 += 1
-
-        if index2 == m:
-            return -1
-
-    # loop through both array to see if elements are not matching, they should.
-    while index2 < m:
-        if array1[index1] != array2[index2]:
+    while index < m:
+        if arr1[index1] != arr2[index]:
             return -1
         index1 += 1
-        index2 += 1
-
-    # initialize second index and begin loop again
-    # first index should be in appropriate location
-    index2 = 0
-    # loop through both array to see if element are not matching
-    while index1 < n:
-        if array1[index1] != array2[index2]:
-            return -1
-        index1 += 1
-        index2 += 1
-
-    return 0
+        index += 1
+    
+    return index1
 
 
 def main():

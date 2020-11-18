@@ -1,11 +1,12 @@
 #python3
 
-#Given a list, find the most frequent element in it. 
+# Given a list, find the most frequent element in it. 
 # If there are multiple elements that appear maximum 
 # number of times, print any one of them.
 
 import sys
 from collections import Counter
+
 
 def find_most_frequent(nums):
     if len(nums) < 1:
@@ -23,6 +24,7 @@ def find_most_frequent(nums):
     
     return value
 
+
 def main():
     data = sys.stdin.readline()
     data = data.rstrip()
@@ -32,3 +34,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
