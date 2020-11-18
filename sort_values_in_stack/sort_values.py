@@ -1,10 +1,14 @@
+# python3
+
 # task: sort values in stack (only using stack operations)
 
 import sys
 
 
 def sort_stack(stack):
-    # initialize by adding first element to result
+    if len(stack) < 2:
+        return stack 
+
     result = []
     first_val = stack.pop(0)
     result.append(first_val)
@@ -30,3 +34,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    

@@ -2,13 +2,13 @@ import sys
 
 
 def heap_sort(nums):
-
-    def heap_sort_util(n):
-        # this will build the heap from nums
+ 
+    def build_heap(n):
         half = (n - 1) // 2
         for i in range(half, n):
             sift_down(n - i - 1, n - 1)
-
+    
+    def sort_heap(n):
         size = n - 1
         while size >= 1:
             nums[0], nums[size] = nums[size], nums[0]
@@ -35,7 +35,9 @@ def heap_sort(nums):
             index = max_index
 
     n = len(nums)
-    heap_sort_util(n)
+    build_heap(n)
+    sort_heap(n)
+    
     return nums
 
 
