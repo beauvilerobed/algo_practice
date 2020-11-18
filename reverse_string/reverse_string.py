@@ -1,3 +1,7 @@
+# python3
+
+# Task: reverse a string iteratively and recursively
+
 import sys
 
 
@@ -10,10 +14,12 @@ def reverse_iterative(string):
     string = "".join(string)
     return string
 
+
 def reverse_recursive_util(string, left, right):
     if left < right:
         string[left], string[right] = string[right], string[left]
         reverse_recursive_util(string, left + 1, right - 1)
+
 
 def reverse_recursive(string):
     string = [char for char in string]
@@ -30,3 +36,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    

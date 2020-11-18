@@ -3,6 +3,7 @@
 import sys
 from collections import Counter
 
+
 def check_if_anagram_naive(string1, string2):
     string1 = sorted([char for char in string1])
     string2 = sorted([char for char in string2])
@@ -12,7 +13,8 @@ def check_if_anagram_naive(string1, string2):
     else:
         return -1
 
-def check_if_anagram(string1, string2):
+
+def check_if_anagram_other(string1, string2):
     hash_it1 = Counter(string1)
     hash_it2 = Counter(string2)
 
@@ -23,6 +25,19 @@ def check_if_anagram(string1, string2):
             return -1
 
     return 0
+
+
+def check_if_anagram(string1, string2):
+    total = 0
+    for letter in string1:
+        total += ord(letter)
+
+    for letter in string2:
+        total -= ord(letter)
+    
+
+    return 0 if not total else -1
+
 
 def main():
     strings = sys.stdin.readlines()
