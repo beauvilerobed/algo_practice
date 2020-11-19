@@ -7,7 +7,7 @@ import random
 def quick_sort(nums):
 
     def quick_sort_util(left, right):
-        if left + 1 > right:
+        if left > right:
             return
             
         p = pick_pivot(left, right)

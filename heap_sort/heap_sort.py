@@ -1,3 +1,5 @@
+#python3
+
 import sys
 
 
@@ -37,7 +39,7 @@ def heap_sort(nums):
     n = len(nums)
     build_heap(n)
     sort_heap(n)
-    
+
     return nums
 
 
