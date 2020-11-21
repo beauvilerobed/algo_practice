@@ -52,26 +52,32 @@ class BST:
         if self.root == None:
             return None
 
-        node_to_replace = self.helper_method(value, find=True)
-        print(node_to_replace)
-        node_to_replace_with = self.next(node_to_replace)
-        print(node_to_replace_with)
+        node_found = self.helper_method(value, find=True)
+        print(node_found)
+        next_node = self.next(node_found)
+        print(next_node)
 
-        parent = node_to_replace_with.parent
+        parent = next_node.parent
 
-        if parent == node_to_replace:
-            node_to_replace.value = node_to_replace_with.value
-            if node_to_replace.right:
-                node_to_replace.right = node_to_replace_with.right
-            else:
-                node_to_replace.left = node_to_replace_with.left
+        if parent == node_found:
+            node_found.value = next_node.value
+            self.replace(node_found, node_found, next_node)
+
         else:
-            node_to_replace.value = node_to_replace_with.value
-            if node_to_replace.right:
-                parent.left = node_to_replace_with.right
-            else:
-                parent.right = node_to_replace_with.left
+            node_found.value = next_node.value
+            self.replace(parent, node_found, next_node)
 
+    def replace(self, node, node_found, next_node):
+        if node_found.right:
+            node.left = next_node.right
+        elif node_found.right:
+            node.right = next_node.left
+        else:
+            node = node_found.parent
+            if node.left:
+                node.left = None
+            else:
+                node.right = None
 
     def helper_method(self, value, find=False):
         
@@ -125,9 +131,9 @@ def main():
         bst.insert(num)
 
     print(bst)
-    val = nums[random_index]
-    print(val)
-    bst.delete(val)
+    # val = nums[random_index]
+    # print(val)
+    bst.delete(1)
     print(bst)
 
 
