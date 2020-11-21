@@ -46,7 +46,7 @@ class BST:
                 node.parent = found_node
     
     def delete(self, value):
-        if self.root == None:
+        if self.root is None:
             return None
 
         found_node = self.insert_util(value, find=True)
@@ -57,20 +57,15 @@ class BST:
     def insert_util(self, value, find=False):
         node = self.root
         while node.left or node.right:
-            if value < node.value:
-                if node.left is None:
-                    return node
-                else:   
-                    node = node.left
+            if value < node.value and node.left:
+                node = node.left
 
-            if value >= node.value:
-                if find and node.value == value:
+            elif value >= node.value and node.right:
+                if find and value == node.value:
                     return node
-
-                if node.right is None:
-                    return node
-                else:
-                    node = node.right             
+                node = node.right     
+            else:
+                return node   
 
         return node
 
@@ -110,7 +105,7 @@ class BST:
                 parent.left = next_node.right
                 if next_node.right:
                     next_node.right.parent = parent
-            elif found_node.right:
+            elif found_node.left:
                 parent.right = next_node.left
                 if next_node.left:
                     next_node.left.parent = parent
