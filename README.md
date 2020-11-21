@@ -1,5 +1,5 @@
 # Practice
-fun algo problems and data sctructure constructions to keep your mind sharp
+Fun algo problems and data sctructure constructions to keep your mind sharp!
 
 To test:
 

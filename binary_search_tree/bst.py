@@ -37,21 +37,21 @@ class BST:
         
         else:
             node = Node(value)
-            found_node = self.insert_util(value)
-            if found_node.value > value:
-                found_node.left = node
-                node.parent = found_node
+            found = self.insert_util(value)
+            if found.value > value:
+                found.left = node
+                node.parent = found
             else:
-                found_node.right = node
-                node.parent = found_node
+                found.right = node
+                node.parent = found
     
     def delete(self, value):
         if self.root is None:
             return None
 
-        found_node = self.insert_util(value, find=True)
-        next_node = self.next(found_node)
-        self.replace(found_node, next_node)
+        found = self.insert_util(value, find=True)
+        next_node = self.next(found)
+        self.replace(found, next_node)
 
 
     def insert_util(self, value, find=False):
@@ -59,7 +59,6 @@ class BST:
         while node.left or node.right:
             if value < node.value and node.left:
                 node = node.left
-
             elif value >= node.value and node.right:
                 if find and value == node.value:
                     return node
@@ -85,32 +84,32 @@ class BST:
 
         return node
 
-    def replace(self, found_node, next_node):
+    def replace(self, found, next_node):
         
         parent = next_node.parent
-        found_node.value = next_node.value
+        found.value = next_node.value
 
-        if parent == found_node:
-            if found_node.right:
-                found_node.right = next_node.right
+        if parent == found:
+            if found.right:
+                found.right = next_node.right
                 if next_node.right:
-                    next_node.right.parent = found_node
-            elif found_node.left:
-                found_node.left = next_node.left
+                    next_node.right.parent = found
+            elif found.left:
+                found.left = next_node.left
                 if next_node.left:
-                    next_node.left.parent = found_node
+                    next_node.left.parent = found
 
         else:
-            if found_node.right:
+            if found.right:
                 parent.left = next_node.right
                 if next_node.right:
                     next_node.right.parent = parent
-            elif found_node.left:
+            elif found.left:
                 parent.right = next_node.left
                 if next_node.left:
                     next_node.left.parent = parent
             else:
-                parent = found_node.parent
+                parent = found.parent
                 if parent is None:
                     self.root = None
                 elif parent.left:
