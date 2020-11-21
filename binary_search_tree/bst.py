@@ -64,18 +64,28 @@ class BST:
             found_node.value = next_node.value
             if found_node.right:
                 found_node.right = next_node.right
+                if next_node.right:
+                    next_node.right.parent = found_node
             elif found_node.left:
                 found_node.left = next_node.left
+                if next_node.left:
+                    next_node.left.parent = found_node
 
         else:
             found_node.value = next_node.value
             if found_node.right:
                 parent.left = next_node.right
+                if next_node.right:
+                    next_node.right.parent = parent
             elif found_node.right:
                 parent.right = next_node.left
+                if next_node.left:
+                    next_node.left.parent = parent
             else:
                 parent = found_node.parent
-                if parent.left:
+                if parent is None:
+                    self.root = None
+                elif parent.left:
                     parent.left = None
                 else:
                     parent.right = None
