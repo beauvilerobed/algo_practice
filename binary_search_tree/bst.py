@@ -40,7 +40,7 @@ class BST:
             self.root = node
         
         else:
-            found_node = self.helper_method(value)
+            found_node = self.insert_util(value)
             if found_node.value > value:
                 found_node.left = node
                 node.parent = found_node
@@ -52,34 +52,36 @@ class BST:
         if self.root == None:
             return None
 
-        node_found = self.helper_method(value, find=True)
-        print(node_found)
-        next_node = self.next(node_found)
-        print(next_node)
-
+        found_node = self.insert_util(value, find=True)
+        next_node = self.next(found_node)
         parent = next_node.parent
 
-        if parent == node_found:
-            node_found.value = next_node.value
-            self.replace(node_found, node_found, next_node)
+        self.swap(found_node, next_node, parent)
+
+
+    def swap(self, found_node, next_node, parent):
+        if parent == found_node:
+            found_node.value = next_node.value
+            if found_node.right:
+                found_node.right = next_node.right
+            elif found_node.left:
+                found_node.left = next_node.left
 
         else:
-            node_found.value = next_node.value
-            self.replace(parent, node_found, next_node)
-
-    def replace(self, node, node_found, next_node):
-        if node_found.right:
-            node.left = next_node.right
-        elif node_found.right:
-            node.right = next_node.left
-        else:
-            node = node_found.parent
-            if node.left:
-                node.left = None
+            found_node.value = next_node.value
+            if found_node.right:
+                parent.left = next_node.right
+            elif found_node.right:
+                parent.right = next_node.left
             else:
-                node.right = None
+                parent = found_node.parent
+                if parent.left:
+                    parent.left = None
+                else:
+                    parent.right = None
 
-    def helper_method(self, value, find=False):
+
+    def insert_util(self, value, find=False):
         
         node = self.root
 
@@ -131,9 +133,9 @@ def main():
         bst.insert(num)
 
     print(bst)
-    # val = nums[random_index]
-    # print(val)
-    bst.delete(1)
+    val = nums[random_index]
+    print(val)
+    bst.delete(val)
     print(bst)
 
 
