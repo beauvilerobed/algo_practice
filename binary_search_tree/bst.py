@@ -19,7 +19,6 @@ class BST:
         self.all_nodes = ""
 
     def __repr__(self):
-
         def inorder_traversal(node):
             if node is None:
                 return
@@ -33,13 +32,11 @@ class BST:
         return self.all_nodes
 
     def insert(self, value):
-
-        node = Node(value)
-
         if self.root == None:
-            self.root = node
+            self.root = Node(value)
         
         else:
+            node = Node(value)
             found_node = self.insert_util(value)
             if found_node.value > value:
                 found_node.left = node
@@ -54,47 +51,11 @@ class BST:
 
         found_node = self.insert_util(value, find=True)
         next_node = self.next(found_node)
-        parent = next_node.parent
-
-        self.swap(found_node, next_node, parent)
-
-
-    def swap(self, found_node, next_node, parent):
-        if parent == found_node:
-            found_node.value = next_node.value
-            if found_node.right:
-                found_node.right = next_node.right
-                if next_node.right:
-                    next_node.right.parent = found_node
-            elif found_node.left:
-                found_node.left = next_node.left
-                if next_node.left:
-                    next_node.left.parent = found_node
-
-        else:
-            found_node.value = next_node.value
-            if found_node.right:
-                parent.left = next_node.right
-                if next_node.right:
-                    next_node.right.parent = parent
-            elif found_node.right:
-                parent.right = next_node.left
-                if next_node.left:
-                    next_node.left.parent = parent
-            else:
-                parent = found_node.parent
-                if parent is None:
-                    self.root = None
-                elif parent.left:
-                    parent.left = None
-                else:
-                    parent.right = None
+        self.replace(found_node, next_node)
 
 
     def insert_util(self, value, find=False):
-        
         node = self.root
-
         while node.left or node.right:
             if value < node.value:
                 if node.left is None:
@@ -122,14 +83,45 @@ class BST:
             while node.left:
                 node = node.left
 
-        
         elif node.left:
             node = node.left
             while node.right:
                 node = node.right
 
-
         return node
+
+    def replace(self, found_node, next_node):
+        
+        parent = next_node.parent
+        found_node.value = next_node.value
+
+        if parent == found_node:
+            if found_node.right:
+                found_node.right = next_node.right
+                if next_node.right:
+                    next_node.right.parent = found_node
+            elif found_node.left:
+                found_node.left = next_node.left
+                if next_node.left:
+                    next_node.left.parent = found_node
+
+        else:
+            if found_node.right:
+                parent.left = next_node.right
+                if next_node.right:
+                    next_node.right.parent = parent
+            elif found_node.right:
+                parent.right = next_node.left
+                if next_node.left:
+                    next_node.left.parent = parent
+            else:
+                parent = found_node.parent
+                if parent is None:
+                    self.root = None
+                elif parent.left:
+                    parent.left = None
+                else:
+                    parent.right = None
 
 
 
@@ -137,15 +129,12 @@ def main():
     data = sys.stdin.readline()
     nums = list(map(int, data.split()))
     bst = BST()
-    length = len(nums) - 1
-    random_index = random.randint(0, length)
     for num in nums:
         bst.insert(num)
 
     print(bst)
-    val = nums[random_index]
-    print(val)
-    bst.delete(val)
+    random_index = random.randint(0, len(nums)-1)
+    bst.delete(nums[random_index])
     print(bst)
 
 
