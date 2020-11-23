@@ -1,6 +1,6 @@
 import os
 import random
-from trees_and_tries import Trie
+from tries import Trie
 
 
 def generate_words():

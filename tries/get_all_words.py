@@ -1,7 +1,7 @@
 # task: find all words stored in Trie
 
 import sys
-from trees_and_tries import Trie
+from tries import Trie
 
 
 def get_all_words(trie):

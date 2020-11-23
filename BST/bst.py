@@ -1,3 +1,7 @@
+# python3
+
+# Task: Implement a binary search tree
+
 import sys
 import random
 
