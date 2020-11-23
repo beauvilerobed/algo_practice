@@ -1,10 +1,13 @@
 import unittest
 from bst import BST
 import random
+from find_smallest import find_smallest
+from find_second_smallest import find_second_smallest
 
-def generate_bsts_nums():
+
+def generate_bsts_and_nums(number=1000):
     bsts_and_nums = []
-    random_nums = [[random.randint(-1000, 1000) for _ in range(random.randint(500, 1000))] for _ in range(random.randint(50, 100))]
+    random_nums = [[random.randint(-number, number) for _ in range(random.randint(number // 2, number))] for _ in range(random.randint(number // 20, number // 10))]
     for nums in random_nums:
         bst = BST()
         for num in nums:
@@ -16,7 +19,7 @@ def generate_bsts_nums():
 
 class TestBST(unittest.TestCase):
     def test_insert(self):
-        bsts_and_nums = generate_bsts_nums()
+        bsts_and_nums = generate_bsts_and_nums()
         for nums, bst in bsts_and_nums:
             nums.sort()
             string_nums = list(map(str, nums))
@@ -24,7 +27,7 @@ class TestBST(unittest.TestCase):
             self.assertEqual(ordered_string, str(bst))
 
     def test_delete(self):
-        bsts_and_nums = generate_bsts_nums()
+        bsts_and_nums = generate_bsts_and_nums()
         for nums, bst in bsts_and_nums:
             for num in nums:
                 if num % 3 == 0:
@@ -36,10 +39,20 @@ class TestBST(unittest.TestCase):
             sorted_bst_nums = sorted(bst_nums)
             self.assertEqual(sorted_bst_nums, bst_nums)
 
-    # def test_find_smallest(self):
+    def test_find_smallest(self):
+        bsts_and_nums = generate_bsts_and_nums()
+        for nums, bst in bsts_and_nums:
+            minimum = min(nums)
+            self.assertEqual(minimum, find_smallest(bst))
 
 
-    # def test_find_second_smallest(self):
+    def test_find_second_smallest(self):
+        bsts_and_nums = generate_bsts_and_nums()
+        for nums, bst in bsts_and_nums:
+            minimum = min(nums)
+            nums.remove(minimum)
+            minimum = min(nums)
+            self.assertEqual(minimum, find_second_smallest(bst))
 
 
 if __name__ == '__main__':
