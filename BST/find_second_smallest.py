@@ -8,8 +8,6 @@ def find_second_smallest(bst):
     string_nums = str(bst)
     char_nums = string_nums.split()
     nums = list(map(int, char_nums))
-    if len(nums) < 2:
-        return None
 
     return nums[1]
 
