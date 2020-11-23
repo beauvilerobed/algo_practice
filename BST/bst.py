@@ -20,20 +20,13 @@ class Node:
 class BST:
     def __init__(self, root=None):
         self.root = root
-        self.all_nodes = ""
+        self.all_nodes = []
 
     def __repr__(self):
-        def inorder_traversal(node):
-            if node is None:
-                return
-
-            inorder_traversal(node.left)
-            self.all_nodes += " " + str(node.value)
-            inorder_traversal(node.right)
-            
-        self.all_nodes = ''
-        inorder_traversal(self.root)
-        return self.all_nodes
+        self.all_nodes = []
+        self.inorder_traversal(self.root)
+        nums = list(map(str, self.all_nodes))
+        return " ".join(nums)
 
     def insert(self, value):
         if self.root == None:
@@ -121,6 +114,13 @@ class BST:
                 else:
                     parent.right = None
 
+    def inorder_traversal(self, node):
+        if node is None:
+            return
+
+        self.inorder_traversal(node.left)
+        self.all_nodes.append(node.value)
+        self.inorder_traversal(node.right)
 
 
 def main():
