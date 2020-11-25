@@ -10,7 +10,7 @@ def reverse_iterative(string):
     string = [char for char in string]
     for i in range(n // 2):
         string[i], string[n - 1 - i] = string[n - 1 - i], string[i]
-    
+
     string = "".join(string)
     return string
 
@@ -36,4 +36,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

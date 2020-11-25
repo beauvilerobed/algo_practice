@@ -1,3 +1,5 @@
+# python3
+
 import sys
 from collections import Counter
 
@@ -7,21 +9,21 @@ class TreeNode:
         self.data = data
         self.left = None
         self.right = None
-    
+
     def __repr__(self):
         return str(self.data)
 
 
 def print_tree(root):
-    if root == None:
-        return 
+    if root is None:
+        return
 
     print(root, end=" ")
     print_tree(root.left)
     print_tree(root.right)
 
 
-def isSumTree(node): 
+def isSumTree(node):
     if node is None:
         return 0
 
@@ -30,9 +32,8 @@ def isSumTree(node):
 
     if node.data == isSumTree(node.left) + isSumTree(node.right):
         return 2 * node.data
-    
-    return float("inf")
 
+    return float("inf")
 
 
 def main():

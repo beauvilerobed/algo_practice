@@ -1,4 +1,4 @@
-#python3
+# python3
 
 import sys
 from collections import defaultdict
@@ -6,7 +6,7 @@ from collections import defaultdict
 
 class Graph:
     def __init__(self, V):
-        self.V = V #number of nodes
+        self.V = V  # number of nodes
         self.edges = defaultdict(list)
 
     def add_edge(self, u, v):
@@ -17,7 +17,7 @@ class Graph:
         self.data.append(node)
         if node in self.edges:
             for child in self.edges[node]:
-                if visited[child] == False:
+                if visited[child] is False:
                     self.dfs_util(child, visited)
 
     def dfs(self):
@@ -25,30 +25,28 @@ class Graph:
         visited = [False] * (self.V + 1)
 
         for node in self.edges:
-            if visited[node] == False:
+            if visited[node] is False:
                 self.dfs_util(node, visited)
-        
+
         return self.data
 
     def bfs_util(self, node, visited):
         queue = [node]
-        
+
         while len(queue) > 0:
             node = queue.pop(0)
             self.bag.append(node)
             visited[node] = True
             if node in self.edges:
                 for edge in self.edges[node]:
-                    if visited[edge] == False:
+                    if visited[edge] is False:
                         queue.append(edge)
-        
 
     def bfs(self):
         self.bag = []
-        visited=[False] * (self.V + 1)
-
+        visited = [False] * (self.V + 1)
         for node in self.edges:
-            if visited[node] == False:
+            if visited[node] is False:
                 self.bfs_util(node, visited)
 
         return self.bag
@@ -63,7 +61,7 @@ def main():
         u = data[0]
         v = data[1]
         graph.add_edge(u, v)
-    
+
     print(graph.dfs())
     print(graph.bfs())
 

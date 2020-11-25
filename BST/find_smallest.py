@@ -1,5 +1,6 @@
 # pyhton3
 
+# Find the smalles value in the binary search tree
 import sys
 from bst import BST
 
@@ -18,7 +19,6 @@ def main():
     bst = BST()
     for num in nums:
         bst.insert(num)
-    
     print(find_smallest(bst))
 
 

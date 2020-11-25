@@ -8,8 +8,9 @@ def selection_sort(nums):
     for i in range(n):
         index = return_min_index(nums[i:], i)
         nums[i], nums[index] = nums[index], nums[i]
-    
+
     return nums
+
 
 def return_min_index(nums, i):
     index = 0
@@ -19,7 +20,7 @@ def return_min_index(nums, i):
         if val < min_val:
             index = j + i
             min_val = val
-    
+
     return index
 
 

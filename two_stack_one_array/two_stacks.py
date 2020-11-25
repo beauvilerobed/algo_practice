@@ -1,3 +1,5 @@
+# python3
+
 # task:  implement two stacks using one array
 
 import sys
@@ -12,7 +14,8 @@ class TwoStacks:
 
     def __repr__(self):
         stack1 = [self.array[i] for i in range(0, self.index1)]
-        stack2 = [self.array[self.index2 - 1 - i] for i in range(self.index2, self.array_len - 1)]
+        stack2 = [self.array[self.index2 - 1 - i]
+                  for i in range(self.index2, self.array_len - 1)]
         return 'stack 1: ' + str(stack1) + ' stack 2: ' + str(stack2)
 
     def insert_stack1(self, data):
@@ -21,7 +24,7 @@ class TwoStacks:
             exit(1)
         else:
             self.array[self.index1] = data
-            self.index1 += 1 
+            self.index1 += 1
 
     def insert_stack2(self, data):
         if self.index2 < self.array_len // 2:
@@ -29,8 +32,8 @@ class TwoStacks:
             exit(1)
         else:
             self.array[self.index2] = data
-            self.index2 -= 1 
-    
+            self.index2 -= 1
+
     def pop_stack1(self):
         self.index1 -= 1
         val = self.array[self.index1]
@@ -39,7 +42,7 @@ class TwoStacks:
             exit(1)
         else:
             return val
-    
+
     def pop_stack2(self):
         self.index2 += 1
         val = self.array[self.index2]
@@ -72,7 +75,7 @@ def main():
         else:
             data2 = data[0]
             two_stacks.insert_stack2(data2)
-    
+
     print(two_stacks)
     val = two_stacks.pop_stack1()
     print("popped value for stack 1:", val)
@@ -85,4 +88,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

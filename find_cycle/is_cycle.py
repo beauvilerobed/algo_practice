@@ -1,5 +1,7 @@
 # python3
 
+# determine if a linked list has a cycle
+
 import sys
 from linked_list import LinkedList
 
@@ -16,7 +18,7 @@ def is_cycle(linklist):
         slow = slow.next
         if fast.val == slow.val:
             return 0
-    
+
     return -1
 
 

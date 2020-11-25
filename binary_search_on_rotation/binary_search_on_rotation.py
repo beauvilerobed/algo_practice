@@ -1,4 +1,4 @@
-#python3
+# python3
 
 # task: Implement binary search in a rotated array (ex. {5,6,7,8,1,2,3})
 
@@ -7,15 +7,15 @@ import sys
 
 def binary_on_rotation(nums, target):
 
-    index = find_min_max(nums) 
+    index = find_min_max(nums)
 
-    if index == None:
+    if index is None:
         return index
 
     if nums[index] <= target and target <= nums[-1]:
         new_nums = nums[index:]
         return binary_search(new_nums, target)
-    
+
     elif nums[0] <= target:
         new_nums = nums[:index]
         return binary_search(new_nums, target)
@@ -31,7 +31,7 @@ def find_min_max(nums):
         if nums[i] > nums[i+1]:
             index = i+1
             break
-    
+
     return index
 
 
@@ -47,12 +47,12 @@ def binary_search(nums, target):
 
         elif target < nums[mid]:
             right = mid - 1
-        
+
         elif target > nums[mid]:
             left = mid + 1
 
         mid = (left + right) // 2
-    
+
     return None
 
 
@@ -65,4 +65,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

@@ -1,7 +1,9 @@
 import unittest
 import sys
 import random
-from remove_even import remove_even, remove_even_naive, remove_even_less, remove_even_in_place
+from remove_even import remove_even, remove_even_naive,\
+                        remove_even_less, remove_even_in_place
+
 
 class RemoveEven(unittest.TestCase):
     def test_small(self):
@@ -26,19 +28,23 @@ class RemoveEven(unittest.TestCase):
             self.assertEqual(remove_even(nums), answer)
 
     def test_stress(self):
-        test_cases = [[random.randint(1, 1000) for _ in range(100)] for _ in range(1000)]
+        test_cases = [[random.randint(1, 1000)
+                      for _ in range(100)]
+                      for _ in range(1000)]
         for nums in test_cases:
             self.assertEqual(remove_even(nums), remove_even_naive(nums))
 
-
     def test_more_stress(self):
-        test_cases = [[random.randint(1, 1000) for _ in range(100)] for _ in range(1000)]
+        test_cases = [[random.randint(1, 1000)
+                      for _ in range(100)]
+                      for _ in range(1000)]
         for nums in test_cases:
             self.assertEqual(remove_even(nums), remove_even_less(nums))
 
-    
     def test_more_more_stress(self):
-        test_cases = [[random.randint(1, 1000) for _ in range(100)] for _ in range(1000)]
+        test_cases = [[random.randint(1, 1000)
+                      for _ in range(100)]
+                      for _ in range(1000)]
         for nums in test_cases:
             first = set(remove_even(nums))
             second = set(remove_even_in_place(nums))

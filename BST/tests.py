@@ -7,13 +7,14 @@ from find_second_smallest import find_second_smallest
 
 def generate_bsts_and_nums(number=1000):
     bsts_and_nums = []
-    random_nums = [[random.randint(-number, number) for _ in range(random.randint(number // 2, number))] for _ in range(random.randint(number // 20, number // 10))]
+    random_nums = [[random.randint(-number, number) for
+                    _ in range(number)] for _ in range(number//10)]
     for nums in random_nums:
         bst = BST()
         for num in nums:
             bst.insert(num)
         bsts_and_nums.append((nums, bst))
-    
+
     return bsts_and_nums
 
 
@@ -44,7 +45,6 @@ class TestBST(unittest.TestCase):
         for nums, bst in bsts_and_nums:
             minimum = min(nums)
             self.assertEqual(minimum, find_smallest(bst))
-
 
     def test_find_second_smallest(self):
         bsts_and_nums = generate_bsts_and_nums()

@@ -1,5 +1,7 @@
 # pyhton3
 
+# Task: Find the second smallest value in a binary search tree
+
 import sys
 from bst import BST
 
@@ -18,7 +20,6 @@ def main():
     bst = BST()
     for num in nums:
         bst.insert(num)
-    
     print(find_second_smallest(bst))
 
 

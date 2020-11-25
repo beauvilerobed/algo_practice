@@ -1,5 +1,7 @@
 # python3
 
+# Determine where the cycle occurs in a cirular linked list
+
 import sys
 from linked_list import LinkedList
 
@@ -18,7 +20,7 @@ def find_cycle(linklist):
         if fast.val == slow.val:
             is_cycle = 0
             break
-    
+
     if is_cycle == -1:
         return "no cycle"
 
@@ -37,7 +39,7 @@ def main():
     linklist = LinkedList()
     for val in vals:
         linklist.add(val)
-    
+
     linklist.add_cycle()
 
     print(find_cycle(linklist))

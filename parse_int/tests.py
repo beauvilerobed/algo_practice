@@ -17,7 +17,8 @@ class ParseInt(unittest.TestCase):
     def test_large(self):
         test_cases = [
             ('1' * 10 ** 5, int('1' * 10 ** 5)),
-            ([str(i % 10) for i in range(10 ** 5)], int("".join([str(i % 10) for i in range(10 ** 5)]))),
+            ([str(i % 10) for i in range(10 ** 5)],
+             int("".join([str(i % 10) for i in range(10 ** 5)]))),
         ]
         for string, answer in test_cases:
             self.assertEqual(parse_int(string), answer)

@@ -1,6 +1,6 @@
 # python3
 
-# task: Write a function that prints out the binary 
+# task: Write a function that prints out the binary
 # form of an int
 
 
@@ -13,7 +13,7 @@ def to_binary(n):
 
     binary_string = '1'
 
-    k = floor(log2(n)) 
+    k = floor(log2(n))
     r = n - 2 ** k
 
     while r > 0:
@@ -23,10 +23,10 @@ def to_binary(n):
         k = nxt
         binary_string += '1'
         r = r - 2 ** k
-    
+
     for _ in range(k):
         binary_string += '0'
-        
+
     return binary_string
 
 

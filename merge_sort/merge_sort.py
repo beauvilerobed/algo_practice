@@ -16,7 +16,8 @@ def merge_sort(nums):
     sorted_nums = merge_nums(first_sorted_half, second_sorted_half)
 
     return sorted_nums
- 
+
+
 def merge_nums(nums1, nums2):
     nums = []
     n = len(nums1)
@@ -31,7 +32,7 @@ def merge_nums(nums1, nums2):
         else:
             nums.append(nums2[index2])
             index2 += 1
-    
+
     if index1 != n:
         temp = nums1[index1:]
         nums += temp

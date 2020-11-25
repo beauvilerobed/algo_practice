@@ -20,9 +20,10 @@ class ToBinary(unittest.TestCase):
         ]
         for n, answer in test_case:
             self.assertEqual(to_binary(n), answer)
-    
+
     def test_stress(self):
-        test_cases = [random.randint(0, 10 ** 5) for _ in range(random.randint(50, 100))]
+        test_cases = [random.randint(0, 10 ** 5)
+                      for _ in range(random.randint(50, 100))]
         for n in test_cases:
             if to_binary(n) != bin(n)[2:]:
                 print(n)

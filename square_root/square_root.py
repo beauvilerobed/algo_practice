@@ -1,3 +1,5 @@
+# python3
+
 import sys
 
 
@@ -5,17 +7,17 @@ def square_root(n):
     if n == 0:
         return 0
 
-    # simply Newton–Raphson method  
+    # simply Newton–Raphson method
     x = 1
-    y = .5 * x + n / (2 * x) 
+    y = .5 * x + n / (2 * x)
     diff = float("inf")
 
     while diff > 0:
 
         x = y
-        y = .5 * x + n / (2 * x) 
+        y = .5 * x + n / (2 * x)
         diff = abs(x - y)
-    
+
     return x
 
 

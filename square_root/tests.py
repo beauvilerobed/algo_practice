@@ -3,6 +3,7 @@ from square_root import square_root
 from math import sqrt
 import random
 
+
 class SquareRoot(unittest.TestCase):
     def test_small(self):
         test_cases = [
@@ -26,7 +27,7 @@ class SquareRoot(unittest.TestCase):
         for n in test_cases:
             # checks that round(a-b, 7) == 0
             self.assertAlmostEqual(square_root(n), n ** .5)
-        
+
 
 if __name__ == '__main__':
     unittest.main()

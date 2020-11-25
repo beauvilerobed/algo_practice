@@ -16,13 +16,16 @@ class MergeSort(unittest.TestCase):
 
     def test_large(self):
         test_case = [
-            ([10 ** 3 - 1 - k for k in range(10 ** 3)], [k for k in range(10 ** 3)]),
+            ([10 ** 3 - 1 - k for k in range(10 ** 3)],
+             [k for k in range(10 ** 3)]),
         ]
         for nums, answer in test_case:
             self.assertEqual(merge_sort(nums), answer)
 
     def test_stress(self):
-        test_cases = [[random.randint(1, 1000) for _ in range(random.randint(50, 1000))] for _ in range(random.randint(50, 100))]
+        test_cases = [[random.randint(1, 1000)
+                      for _ in range(random.randint(50, 1000))]
+                      for _ in range(random.randint(50, 100))]
         for nums in test_cases:
             answer = sorted(nums)
             self.assertEqual(merge_sort(nums), answer)

@@ -1,4 +1,4 @@
-#python3
+# python3
 
 # task: Find the first non-repeated character in a String
 
@@ -12,7 +12,7 @@ def find_non_repeating(string):
         char = string[i]
         if hash_it[char] == 1:
             return i + 1
-    
+
     return -1
 
 

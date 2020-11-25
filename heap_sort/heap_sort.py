@@ -1,15 +1,15 @@
-#python3
+# python3
 
 import sys
 
 
 def heap_sort(nums):
- 
+
     def build_heap(n):
         half = (n - 1) // 2
         for i in range(half, n):
             sift_down(n - i - 1, n - 1)
-    
+
     def sort_heap(n):
         size = n - 1
         while size >= 1:
@@ -18,7 +18,7 @@ def heap_sort(nums):
             sift_down(0, size)
 
     def sift_down(index, size):
-        
+
         while index < size:
             max_index = index
             left_child = 2 * index + 1
@@ -29,7 +29,7 @@ def heap_sort(nums):
 
             if right_child <= size and nums[max_index] <= nums[right_child]:
                 max_index = right_child
-            
+
             if max_index == index:
                 break
 

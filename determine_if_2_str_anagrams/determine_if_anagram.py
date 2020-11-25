@@ -34,7 +34,6 @@ def check_if_anagram(string1, string2):
 
     for letter in string2:
         total -= ord(letter)
-    
 
     return 0 if not total else -1
 
@@ -44,7 +43,7 @@ def main():
     string1 = strings[0].rstrip()
     string2 = strings[1].rstrip()
 
-    print(check_if_anagram(string1,string2))
+    print(check_if_anagram(string1, string2))
 
 
 if __name__ == '__main__':

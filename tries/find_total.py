@@ -1,7 +1,9 @@
+# python3
+
 # task: find the total number of words stored in Trie
 
 import sys
-from trees_and_tries import Trie
+from tries import Trie
 
 
 def get_total_naive(trie):

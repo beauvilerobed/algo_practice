@@ -16,12 +16,11 @@ class FindNoneRepeating(unittest.TestCase):
 
     def test_large(self):
         test_case = [
-            ('l' * 10 ** 3 , -1),
+            ('l' * 10 ** 3, -1),
             ('l' * 10 ** 3 + 'a' + 'l' * 10 ** 3, 10 ** 3 + 1),
         ]
         for string, answer in test_case:
             self.assertEqual(find_non_repeating(string), answer)
-
 
 
 if __name__ == '__main__':

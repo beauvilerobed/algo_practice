@@ -7,7 +7,8 @@ class Node:
     def __init__(self, value):
         self.value = value
         self.next = None
-        
+
+
 class LinkedList:
     def __init__(self, head=None):
         self.head = head
@@ -23,7 +24,7 @@ class LinkedList:
             linkedlist += '->' + str(node.value)
 
         return linkedlist
-    
+
     def return_array(self):
         if self.head is None:
             return []
@@ -35,7 +36,7 @@ class LinkedList:
             array.append(node.value)
 
         return array
-    
+
     def __len__(self):
         return self.length
 
@@ -46,15 +47,13 @@ class LinkedList:
         self.length += 1
 
     def remove(self, n):
-        """
-            remove method deletes elements based on their 
-            indexes or position in the linked list
-        """
+        """ remove method deletes elements based on their
+            indexes or position in the linked list """
         if self.head is None or (n < 0 or self.length <= n):
             return "nothing to remove"
         else:
             self.length -= 1
-        
+
         count = 0
         node = self.head
         prev = None
@@ -69,18 +68,17 @@ class LinkedList:
             prev = node.next
             node.next = None
             self.head = prev
-        
+
         else:
             prev.next = node.next
             node.next = None
-
 
     def search(self, query):
         if self.head is None:
             return "failure"
 
         node = self.head
-        
+
         while node.next:
             if node.value == query:
                 return "success"
@@ -90,18 +88,18 @@ class LinkedList:
             return "success"
 
         return "failure"
-    
+
     def search_nth(self, n):
         if n < 0 or n >= self.length - 1 or self.head is None:
             return "doesn't exist"
-        
+
         count = 0
         node = self.head
 
         while count < n:
             node = node.next
             count += 1
-        
+
         return node.value
 
     def middle(self):

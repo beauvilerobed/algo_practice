@@ -56,7 +56,7 @@ class Trie:
     def dfs(self, node, prefix):
         if node.in_end:
             self.bag.append(prefix)
-                
+
         for child in node.children:
             child_node = node.children[child]
             prefix = prefix + child_node.char
@@ -76,7 +76,7 @@ class Trie:
                 return self.bag
             else:
                 break
-        
+
         self.dfs(node, prefix)
 
         return self.bag
@@ -88,7 +88,7 @@ def main():
     for data in data_set:
         data = data.rstrip()
         trie.insert(data)
-    
+
     print(trie.word_number)
     print(trie.query(''))
     print(trie.search(input("What word would you like to search: ")))

@@ -1,5 +1,6 @@
 import unittest
-from word_trie_generator import generate_words, generate_trie, generate_other_words
+from word_trie_generator import generate_words, generate_trie,\
+                                generate_other_words
 from get_all_words import get_all_words
 from find_total import get_total, get_total_naive
 
@@ -7,6 +8,7 @@ from find_total import get_total, get_total_naive
 words = generate_words()
 trie = generate_trie(words)
 other_words = generate_other_words(words)
+
 
 class TestTrie(unittest.TestCase):
     def test_search_method(self):
@@ -40,11 +42,10 @@ class TestTrie(unittest.TestCase):
 
     def test_total_attr(self):
         self.assertEqual(get_total(trie), trie.word_number)
-    
+
     def test_find_total(self):
         self.assertEqual(get_total(trie), get_total_naive(trie))
 
 
 if __name__ == '__main__':
     unittest.main()
-

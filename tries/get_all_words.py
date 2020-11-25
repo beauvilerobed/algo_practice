@@ -1,3 +1,5 @@
+# python3
+
 # task: find all words stored in Trie
 
 import sys
@@ -21,4 +23,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

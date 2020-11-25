@@ -12,7 +12,7 @@ class Node:
         self.parent = None
         self.left = None
         self.right = None
-    
+
     def __repr__(self):
         return str(self.value)
 
@@ -29,9 +29,8 @@ class BST:
         return " ".join(nums)
 
     def insert(self, value):
-        if self.root == None:
+        if self.root is None:
             self.root = Node(value)
-        
         else:
             node = Node(value)
             found = self.insert_util(value)
@@ -41,7 +40,7 @@ class BST:
             else:
                 found.right = node
                 node.parent = found
-    
+
     def delete(self, value):
         if self.root is None:
             return None
@@ -49,7 +48,6 @@ class BST:
         found = self.insert_util(value, find=True)
         next_node = self.next(found)
         self.replace(found, next_node)
-
 
     def insert_util(self, value, find=False):
         node = self.root
@@ -59,9 +57,9 @@ class BST:
             elif value >= node.value and node.right:
                 if find and value == node.value:
                     return node
-                node = node.right     
+                node = node.right
             else:
-                return node   
+                return node
 
         return node
 
@@ -82,7 +80,6 @@ class BST:
         return node
 
     def replace(self, found, next_node):
-        
         parent = next_node.parent
         found.value = next_node.value
 

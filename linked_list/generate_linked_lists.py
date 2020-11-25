@@ -3,7 +3,9 @@ from linked_list import LinkedList
 
 
 def generate_linkedlists_and_arrays(number=500):
-    arrays = [[random.randint(0, number) for _ in range(random.randint(0, number))] for _ in range(number)]
+    arrays = [[random.randint(0, number)
+              for _ in range(random.randint(0, number))]
+              for _ in range(number)]
     linklists = []
     for nums in arrays:
         linklist = LinkedList()
@@ -16,7 +18,9 @@ def generate_linkedlists_and_arrays(number=500):
 
 
 def generate_linkedlists_and_palindromes(number=500):
-    arrays = [[random.randint(1, number) for _ in range(1, number)] for _ in range(number)]
+    arrays = [[random.randint(1, number)
+              for _ in range(1, number)]
+              for _ in range(number)]
 
     for i in range(len(arrays)):
         if i % 2 == 0:

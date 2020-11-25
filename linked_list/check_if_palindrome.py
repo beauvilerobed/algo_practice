@@ -28,7 +28,7 @@ def is_palindrome(linklist):
             return "no"
         slow = slow.next
         node = node.next
-    
+
     return "yes"
 
 
@@ -43,4 +43,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

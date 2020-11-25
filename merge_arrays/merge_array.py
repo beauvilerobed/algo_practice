@@ -21,7 +21,7 @@ def merge_array(nums1, nums2):
 
     # loop throught each array at the same time to
     # to see which value to add to the result
-    while index1 < n and index2 < m: # need to make sure that index1 AND index2 are less that n and m, resp!
+    while index1 < n and index2 < m:
         if nums1[index1] > nums2[index2]:
             value = nums2[index2]
             result.append(value)
@@ -47,7 +47,6 @@ def merge_array(nums1, nums2):
 
     if index2 != m:
         result = result + nums2[index2:]
-
 
     return result
 

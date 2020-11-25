@@ -3,6 +3,7 @@ from binary_search_on_rotation import binary_on_rotation
 import random
 from generate_rotation import generate_rotations, generate_sorted_nums
 
+
 class BinarySearch(unittest.TestCase):
     def test_small(self):
         test_cases = [
@@ -15,15 +16,15 @@ class BinarySearch(unittest.TestCase):
         for nums, target, answer in test_cases:
             self.assertEqual(binary_on_rotation(nums, target), answer)
 
-
     def test_large(self):
         test_cases = [
-            ([i + 1000 for i in range(10 ** 6)] + [i for i in range(1000)], 1001, 1001),
+            ([i + 1000 for i in range(10 ** 6)] +
+             [i for i in range(1000)], 1001, 1001),
             ([i + 1 for i in range(10 ** 6)] + [0], 0, 0),
         ]
         for nums, target, answer in test_cases:
             self.assertEqual(binary_on_rotation(nums, target), answer)
-    
+
     def test_stress(self):
         nums = generate_sorted_nums(1000)
         test_cases = generate_rotations(nums)

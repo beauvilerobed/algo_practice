@@ -1,6 +1,6 @@
 # pyhton3
 
-# task: Write a multiply function that multiples 2 
+# task: Write a multiply function that multiples 2
 # integers without using the * symbol
 
 import sys
@@ -18,12 +18,13 @@ def multiply(a, b):
     num = multiply_positive(abs(a), abs(b))
     return c * d * num
 
+
 def multiply_positive(a, b):
     result = 0
 
     for _ in range(a):
         result += b
-    
+
     return result
 
 

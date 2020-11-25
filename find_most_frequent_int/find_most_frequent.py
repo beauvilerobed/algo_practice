@@ -1,7 +1,7 @@
-#python3
+# python3
 
-# Given a list, find the most frequent element in it. 
-# If there are multiple elements that appear maximum 
+# Given a list, find the most frequent element in it.
+# If there are multiple elements that appear maximum
 # number of times, print any one of them.
 
 import sys
@@ -21,7 +21,7 @@ def find_most_frequent(nums):
         if nums[num] > most_frequent:
             value = num
             most_frequent = nums[num]
-    
+
     return value
 
 
@@ -34,4 +34,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

@@ -24,7 +24,7 @@ class MinStack:
         while node:
             stack = str(node.val) + " " + stack
             node = node.next
-        
+
         return stack
 
     def add(self, val):
@@ -36,27 +36,26 @@ class MinStack:
                 old_min = self.minimum
                 self.minimum = val
                 val = 2 * val - old_min
-        
+
         node = LinkedListNode(val)
         node.next = self.head
         self.head = node
 
-
     def pop(self):
         if self.head is None:
             return "empty stack"
-        
+
         else:
             top = self.head.val
             if top < self.minimum:
                 temp = top
                 top = self.minimum
                 self.minimum = 2 * self.minimum - temp
-            
+
             node = self.head
             self.head = self.head.next
             node.next = None
-        
+
         return top
 
     def minimum_val(self):
@@ -67,21 +66,20 @@ def main():
     lines = sys.stdin.readlines()
     for i in range(len(lines)):
         lines[i] = lines[i].rstrip().split()
-        
+
     stack = MinStack()
     for line in lines:
         if line[0] == 'add':
             stack.add(int(line[1]))
             print(stack)
-        
+
         if line[0] == 'pop':
             val = stack.pop()
             print(val)
-        
-        if line[0] == "min": 
+
+        if line[0] == "min":
             print(stack.minimum_val())
 
 
 if __name__ == '__main__':
     main()
-        
