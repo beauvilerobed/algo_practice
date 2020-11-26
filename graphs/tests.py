@@ -1,21 +1,12 @@
 import unittest
-from generate_graph import generate_numbers, generate_graph
+from generate_graph import generate_graphs
 
-
-def generate_graphs():
-    test_cases = []
-    for _ in range(1000):
-        size, nums1, nums2 = generate_numbers()
-        graph = generate_graph(size, nums1, nums2)
-        test_cases.append((graph, nums1))
-    
-    return test_cases
 
 class TestGraph(unittest.TestCase):
     def test_bfs_method(self):
         test_cases = generate_graphs()
         for graph, answer in test_cases:
-            self.assertCountEqual(graph.dfs(), answer)
+            self.assertCountEqual(graph.bfs(), answer)
 
     def test_dfs_method(self):
         test_cases = generate_graphs()

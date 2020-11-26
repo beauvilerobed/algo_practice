@@ -25,7 +25,7 @@ class HeapSort(unittest.TestCase):
     def test_stress(self):
         test_cases = [[random.randint(1, 1000)
                       for _ in range(random.randint(50, 1000))]
-                      for _ in range(random.randint(50, 1000))]
+                      for _ in range(random.randint(5, 100))]
         for nums in test_cases:
             answer = sorted(nums)
             self.assertEqual(heap_sort(nums), answer)
