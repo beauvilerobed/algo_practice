@@ -23,13 +23,14 @@ class Anagram(unittest.TestCase):
 
     def test_stress(self):
         test_cases = []
-        for _ in range(random.randint(500, 1000)):
-            values = [str(random.randint(1, 1000))
-                      for _ in range(random.randint(50, 1000))]
+        number = 1000
+        for _ in range(random.randint(number//100, number)):
+            values = [str(random.randint(1, number))
+                      for _ in range(random.randint(number//100, number))]
             string = "".join(values)
             test_cases.append(string)
 
-        for i in range(0, len(test_cases), 2):
+        for i in range(0, len(test_cases) - 1, 2):
             string1 = test_cases[i]
             string2 = test_cases[i+1]
             self.assertEqual(check_if_anagram(string1, string2),

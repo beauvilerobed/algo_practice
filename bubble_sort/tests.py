@@ -1,5 +1,6 @@
 import unittest
 import random
+from numpy import random
 from bubble_sort import bubble_sort
 
 
@@ -23,9 +24,9 @@ class BubbleSort(unittest.TestCase):
             self.assertEqual(bubble_sort(nums), answer)
 
     def test_stress(self):
-        test_cases = [[random.randint(1, 1000)
-                      for _ in range(random.randint(50, 1000))]
-                      for _ in range(random.randint(50, 100))]
+        # 500 gives bubble runtime to be around 2-3 sec
+        number = 500
+        test_cases = random.randint(-number, number, size=(number//10, number))
         for nums in test_cases:
             answer = sorted(nums)
             self.assertEqual(bubble_sort(nums), answer)
