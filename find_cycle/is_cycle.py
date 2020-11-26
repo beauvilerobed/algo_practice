@@ -8,7 +8,7 @@ from linked_list import LinkedList
 
 def is_cycle(linklist):
     if linklist.head is None:
-        return -1
+        return 'no'
 
     fast = linklist.head
     slow = linklist.head
@@ -17,9 +17,9 @@ def is_cycle(linklist):
         fast = fast.next.next
         slow = slow.next
         if fast.val == slow.val:
-            return 0
+            return 'yes'
 
-    return -1
+    return 'no'
 
 
 def main():
