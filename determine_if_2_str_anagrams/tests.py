@@ -1,6 +1,24 @@
 import unittest
 import random
+import string
 from determine_if_anagram import check_if_anagram, check_if_anagram_naive
+
+
+def generate_strings(number=1000):
+    letter = string.ascii_lowercase
+    strings = []
+    other_stings = []
+    for i in range(number):
+        rand_number = random.randint(0, number)
+        string1 = ''.join(random.choice(letter) for _ in range(rand_number))
+        if i % 2 == 0:
+            strings.append(string1 + string1[::-1])
+            other_stings.append(string1 + string1[::-1])
+        else:
+            strings.append(string1)
+            other_stings.append("notanagram")
+    
+    return strings, other_stings
 
 
 class Anagram(unittest.TestCase):
@@ -22,17 +40,8 @@ class Anagram(unittest.TestCase):
             self.assertEqual(check_if_anagram(string1, string2), answer)
 
     def test_stress(self):
-        test_cases = []
-        number = 1000
-        for _ in range(random.randint(number//100, number)):
-            values = [str(random.randint(1, number))
-                      for _ in range(random.randint(number//100, number))]
-            string = "".join(values)
-            test_cases.append(string)
-
-        for i in range(0, len(test_cases) - 1, 2):
-            string1 = test_cases[i]
-            string2 = test_cases[i+1]
+        strings, other_stings = generate_strings()
+        for string1, string2 in zip(strings, other_stings):
             self.assertEqual(check_if_anagram(string1, string2),
                              check_if_anagram_naive(string1, string2))
 
