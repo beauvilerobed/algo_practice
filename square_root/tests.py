@@ -25,7 +25,6 @@ class SquareRoot(unittest.TestCase):
     def test_stress(self):
         test_cases = [random.randint(0, 10 ** 7) for _ in range(10 ** 5)]
         for n in test_cases:
-            # checks that round(a-b, 7) == 0
             self.assertAlmostEqual(square_root(n), n ** .5)
 
 

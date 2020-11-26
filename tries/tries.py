@@ -21,14 +21,11 @@ class Trie:
         self.word_number += 1
 
         node = self.root
-        # will help determeine duplicates
         count = 0
         for char in word:
-            # if char is one of the nodes continue down the trie
             if char in node.children:
                 count += 1
                 node = node.children[char]
-            # else create a new node and attach to trie
             else:
                 count -= 1
                 new = TrieNode(char)
@@ -44,7 +41,6 @@ class Trie:
         node = self.root
         index = 0
         while True:
-            # find the index for which the prefix is already in the trie
             if index == len(word):
                 return "word found"
             elif word[index] in node.children:

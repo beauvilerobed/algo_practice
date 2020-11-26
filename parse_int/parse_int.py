@@ -4,6 +4,7 @@ import sys
 
 
 def parse_int(string):
+    # TODO: reduce runtime
     n = len(string)
     if n == 0:
         return None

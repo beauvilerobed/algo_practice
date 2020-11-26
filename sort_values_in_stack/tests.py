@@ -5,6 +5,7 @@ from sort_values import sort_stack
 
 
 class SortStack(unittest.TestCase):
+    # tests take a total of 10-12 sec
     def test_small(self):
         test_cases = [
             ([2, 3, 1], [1, 2, 3]),
@@ -31,12 +32,13 @@ class SortStack(unittest.TestCase):
     def test_stress(self):
         test_cases = [[random.randint(1, 1000)
                       for _ in range(random.randint(500, 1000))]
-                      for _ in range(random.randint(50, 100))]
+                      for _ in range(random.randint(5, 10))]
         for nums in test_cases:
             new_nums = copy.copy(nums)
             new_nums.sort()
             actual = sort_stack(nums)
             self.assertEqual(actual, new_nums)
+
 
 if __name__ == '__main__':
     unittest.main()

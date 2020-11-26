@@ -25,7 +25,7 @@ class QuickSort(unittest.TestCase):
     def test_stress(self):
         test_cases = [[random.randint(1, 1000)
                       for _ in range(random.randint(50, 1000))]
-                      for _ in range(random.randint(50, 1000))]
+                      for _ in range(random.randint(0, 500))]
         for nums in test_cases:
             answer = sorted(nums)
             self.assertEqual(quick_sort(nums), answer)

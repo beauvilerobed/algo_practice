@@ -7,13 +7,12 @@ def square_root(n):
     if n == 0:
         return 0
 
-    # simply Newton–Raphson method
+    # Newton–Raphson method solve y ** 2 - x = 0
     x = 1
     y = .5 * x + n / (2 * x)
     diff = float("inf")
 
     while diff > 0:
-
         x = y
         y = .5 * x + n / (2 * x)
         diff = abs(x - y)

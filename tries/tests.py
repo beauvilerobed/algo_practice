@@ -10,6 +10,11 @@ trie = generate_trie(words)
 other_words = generate_other_words(words)
 
 
+assert len(words) == 10000
+assert trie.word_number == 10000
+assert len(other_words) == 100
+
+
 class TestTrie(unittest.TestCase):
     def test_search_method(self):
         for word in other_words:
