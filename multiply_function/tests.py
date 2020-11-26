@@ -23,7 +23,7 @@ class Multipy(unittest.TestCase):
 
     def test_stress(self):
         test_cases = [(random.randint(-10 ** 5, 10 ** 5),
-                      random.randint(-10 ** 5, 10 ** 5)) for _ in range(1000)]
+                      random.randint(-10 ** 5, 10 ** 5)) for _ in range(500)]
         for a, b in test_cases:
             self.assertEqual(multiply(a, b), a * b)
 

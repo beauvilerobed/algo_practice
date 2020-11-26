@@ -21,6 +21,8 @@ def multiply(a, b):
 
 def multiply_positive(a, b):
     result = 0
+    if a > b:
+        a, b = b, a
 
     for _ in range(a):
         result += b
