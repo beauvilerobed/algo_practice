@@ -1,6 +1,6 @@
 import unittest
-import random
 from two_sum import two_sum
+from numpy import random
 
 
 def reference(nums, target):
@@ -41,11 +41,8 @@ class TwoSum(unittest.TestCase):
             self.assertEqual(two_sum(nums, 10), answer)
 
     def test_stress(self):
-        test_cases = [
-                [random.randint(-1000, 1000)
-                for _ in range(random.randint(500, 1000))]
-                    for _ in range(random.randint(500, 1000))
-                    ]
+        num = 1000
+        test_cases = random.randint(-num, num, size=(num, num // 2))
         for nums in test_cases:
             actual = sum(two_sum(nums, 10)) if two_sum(nums, 10) else None
             expected = sum(reference(nums, 10)) if reference(nums, 10) else None

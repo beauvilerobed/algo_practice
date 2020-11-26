@@ -26,7 +26,7 @@ class BinarySearch(unittest.TestCase):
             self.assertEqual(binary_on_rotation(nums, target), answer)
 
     def test_stress(self):
-        nums = generate_sorted_nums(1000)
+        nums = generate_sorted_nums()
         test_cases = generate_rotations(nums)
         for nums in test_cases:
             target = random.randint(-10000, 10000)
