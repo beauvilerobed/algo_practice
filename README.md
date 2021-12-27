@@ -1,16 +1,12 @@
-# Practice
-Fun algo problems and data sctructure constructions to keep your mind sharp!
+## Data Structure constructions and Algorithms
+### Project Set Up:
 
-Requirements: 
+#### Requirements:
+python3\
+unittest\
+numpy
 
-`python3`
+#### To test:
 
-`unittest`
-
-`numpy`
-
-To test:
-
-`cd filename`
-
+`cd [filename]`\
 `python3 tests.py`
