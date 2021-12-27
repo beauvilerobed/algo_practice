@@ -1,0 +1,24 @@
+1
+
+The input file describes a knapsack instance, and it has the following format:
+
+[knapsack_size] [number_of_items]
+[value_1] [weight_1]
+[value_2] [weight_2]
+...
+
+For example, the third line of the file is "50074 659", indicating that the second 
+item has value 50074 and size 659, respectively.
+
+2 
+
+The input file describes a knapsack instance, and it has the following format:
+
+[knapsack_size] [number_of_items]
+[value_1] [weight_1]
+[value_2] [weight_2]
+...
+
+For example, the third line of the file is "50074 834558", indicating that the 
+second item has value 50074 and size 834558, respectively. As before, you should 
+assume that item weights and the knapsack capacity are integers.

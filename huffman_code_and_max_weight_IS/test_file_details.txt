@@ -1,0 +1,19 @@
+# tests
+
+# The input file describes an instance of the problem. It has the following format:
+
+# [number_of_symbols] [weight of symbol #1] [weight of symbol #2] ...
+
+# For example, the third line of the file is "6852892," indicating that the weight 
+# of the second symbol of the alphabet is 6852892. 
+
+# tests2
+
+# The input file describes the weights of the vertices in a path graph 
+# (with the weights listed in the order in which vertices appear in the path). 
+# It has the following format:
+
+# [number_of_vertices] [weight of first vertex] [weight of second vertex] ...
+
+# For example, the third line of the file is "6395702," indicating that the weight 
+# of the second vertex of the graph is 6395702.

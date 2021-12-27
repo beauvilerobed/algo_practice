@@ -1,0 +1,36 @@
+tests
+
+The input file describes a distance function (equivalently, a complete graph 
+with edge costs). It has the following format:
+
+[number_of_nodes]
+[edge 1 node 1] [edge 1 node 2] [edge 1 cost]
+[edge 2 node 1] [edge 2 node 2] [edge 2 cost]
+...
+
+There is one edge (i,j) for each choice of 1≤_i_<_j_≤n, where n is the number 
+of nodes.
+
+For example, the third line of the file is "1 3 5250", indicating that the 
+distance between nodes 1 and 3 (equivalently, the cost of the edge (1,3)) 
+is 5250. You can assume that distances are positive, but you should NOT assume 
+that they are distinct.
+
+test2
+
+The format is:
+
+[# of nodes] [# of bits for each node's label]
+[first bit of node 1] ... [last bit of node 1]
+[first bit of node 2] ... [last bit of node 2]
+...
+
+For example, the third line of the file 
+"0 1 1 0 0 1 1 0 0 1 0 1 1 1 1 1 1 0 1 0 1 1 0 1" denotes the 24 bits associated 
+with node #2.
+
+The distance between two nodes u and v in this problem is defined as the Hamming 
+distance -- the number of differing bits -- between the two nodes' labels. For 
+example, the Hamming distance between the 24-bit label of node #2 above and the 
+label "0 1 0 0 0 1 0 0 0 1 0 1 1 1 1 1 1 0 1 0 0 1 0 1" is 3 (since they differ 
+in the 3rd, 7th, and 21st bits).
