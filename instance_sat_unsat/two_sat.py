@@ -6,7 +6,6 @@
 # if you think that the first 3 instances are satisfiable and the last 3 are not, 
 # then you should enter the string 111000 in the box below. 
 
-
 from file_reader import read_file, reduce_size
 from is_true import is_true
 from math import log2
