@@ -8,5 +8,7 @@ numpy
 
 #### To test:
 
-`cd [filename]`\
-`python3 tests.py`
+```bash
+$ cd [filename]
+$ python3 tests.py
+```
