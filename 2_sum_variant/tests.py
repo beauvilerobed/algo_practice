@@ -11,7 +11,7 @@ targets = [i for i in range(-10000, 10001)]
 
 class TestTwoSums(unittest.TestCase):
     def test_cases(self):
-        # takes ~ 70 sec given 20000 iterations over each testcase
+        # takes ~ 1 min given 20000 iterations over each testcase
         count = 1
         for input_value, output_value in cases:
             self.assertEqual(find_two_sum_total(input_value, targets),
