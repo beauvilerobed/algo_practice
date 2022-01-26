@@ -20,7 +20,6 @@ def find_maximum_value(data_set):
         '*': operator.mul,
     }
 
-    # collect operators and values
     operator_signs = []
     nums = []
     for val in data_set:
@@ -29,9 +28,6 @@ def find_maximum_value(data_set):
         else:
             nums.append(int(val))
 
-    # We must keep track of both the minimum and the maximum
-    # because the maximal value of an expression may result
-    # from multiplying two negative subexpressions.
     min_matrix = [[0 for _ in range(len(nums))] for _ in range(len(nums))]
     max_matrix = [[0 for _ in range(len(nums))] for _ in range(len(nums))]
 
