@@ -1,7 +1,7 @@
 import unittest
 from two_sums import find_two_sum_total
 from file_reader import generate_files, generate_cases
-import threading
+
 
 
 input_files, output_files = generate_files()
@@ -10,8 +10,8 @@ targets = [i for i in range(-10000, 10001)]
 
 
 class TestTwoSums(unittest.TestCase):
+    #TODO: takes ~ 1 min for first 35 cases but then runs really slower(~20 min for first 45 cases), possible solution is nose...
     def test_cases(self):
-        # takes ~ 1 min given 20000 iterations over each testcase
         count = 1
         for input_value, output_value in cases:
             self.assertEqual(find_two_sum_total(input_value, targets),
