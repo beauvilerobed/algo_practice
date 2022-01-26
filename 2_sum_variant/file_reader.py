@@ -1,23 +1,25 @@
+from operator import contains
 import os
 import glob
 
 
 def generate_files(path='/tests/*'):
     file_path = os.getcwd() + path
-    file_path_length = len(file_path) - 1
 
     paths = glob.glob(file_path)
     input_files = []
     output_files = []
 
     for path in paths:
-        if path[file_path_length: file_path_length + 5] == 'input':
+        if 'input' in path:
             input_files.append(path)
-        elif path[file_path_length: file_path_length + 6] == 'output':
+        elif 'output' in path:
             output_files.append(path)
 
     input_files.sort()
+    print('number of input files is {}'.format(len(input_files)))
     output_files.sort()
+    print('number of output files is {}'.format(len(output_files)))
 
     return input_files, output_files
 
