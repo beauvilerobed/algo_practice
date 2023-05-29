@@ -12,19 +12,19 @@ class ToBinary(unittest.TestCase):
         for a, b, ans in test_case:
             self.assertEqual(set(intersection(a,b)), set(ans))
 
-'''    def test_large(self):
+    def test_large(self):
+        test_1_a = [random.randint(50, 100) for _ in range(10**5)]
+        test_1_b = [random.randint(50, 100) for _ in range(10**5)]
         test_case = [
-            (10 ** 6, bin(10 ** 6)[2:]),
-            (2 ** 6, '1' + '0' * 6),
+            (test_1_a,
+             test_1_b,
+             set(test_1_a).intersection(test_1_b)),
+            ([1]*10**5,
+             [0]*10**5,
+             []),
         ]
         for a, b, ans in test_case:
             self.assertEqual(set(intersection(a,b)), set(ans))
-
-    def test_stress(self):
-        test_cases = [random.randint(0, 10 ** 5)
-                      for _ in range(random.randint(50, 100))]
-        for a, b, ans in test_case:
-            self.assertEqual(set(intersection(a,b)), set(ans))'''
 
 
 if __name__ == '__main__':
