@@ -1,4 +1,4 @@
-## Data Structure constructions and Algorithms
+## Data Structure Constructions and Algorithms
 ### Project Set Up:
 
 #### Requirements:
